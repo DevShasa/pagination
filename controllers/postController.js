@@ -5,7 +5,7 @@ exports.getAllPosts = async (req, res) =>{
         let query = Post.find(); // returns a promise
 
         const pageNumber = parseInt(req.query.page);
-        const pageSize = parseInt(req.query.limit)  || 50;
+        const pageSize = parseInt(req.query.limit)  || 12;
         const skip = (pageNumber -1) * pageSize; // how many pages to skip before returning data
         const total =  await Post.countDocuments(); // total number of documents
 
