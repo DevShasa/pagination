@@ -12,9 +12,11 @@ exports.getAllPosts = async (req, res) =>{
         const pages = Math.ceil(total / pageSize) // 500/50 = 10
 
         if(pageNumber > pages){
-            res.status(404).json({
-                status:"No page found"
+            return res.status(404).json({
+                status:"fail",
+                message:"No page found"
             })
+            
         }
 
         query = query.skip(skip).limit(pageSize)
